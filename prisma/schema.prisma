@@ -10,7 +10,7 @@ datasource db {
 model Patient {
   id             Int             @id @default(autoincrement())
   email          String          @unique
-  name           String?
+  name           String
   doctors        Doctor[]        @relation("PatientDoctors")
   conversations  Conversation[]  @relation("PatientConversations")
 }
@@ -18,7 +18,7 @@ model Patient {
 model Doctor {
   id             Int             @id @default(autoincrement())
   email          String          @unique
-  name           String?
+  name           String
   patients       Patient[]       @relation("PatientDoctors")
   conversations  Conversation[]  @relation("DoctorConversations")
 }
